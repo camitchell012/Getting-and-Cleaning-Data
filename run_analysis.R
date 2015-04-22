@@ -50,12 +50,9 @@ all_data <- rbind (train_data, test_data)
 activities <- read.table("UCI HAR Dataset/activity_labels.txt")
 all_data[, 2] <- activities[all_data[, 2], 2]
 
-# Write all_data to disk
-write.table(all_data, "all_data.txt", row.name=FALSE)
-
 # Compute the column means, group by subject and activity
 average_data <- ddply(all_data, .(subject, activity), function(x) colMeans(subset(x, select=mean_and_std_names)))
 
 # Write the average data to disk
-write.table(average_data, "average_data.txt", row.name=FALSE)
+write.table(average_data, "tidy.txt", row.name=FALSE)
 
