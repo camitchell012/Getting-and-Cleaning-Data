@@ -1,10 +1,9 @@
-#
-#
-#
+#  Getting and Cleanind Data: Course Project
+#  This R script is used to tidy up the accelerometer datasets
 library(plyr)
 
 # First, lets get the column names that we are interested. We will use this 
-# information later to subset the data
+# information later to subset the data (and reduce memory usage)
 col_names <- read.table("UCI HAR Dataset/features.txt")
 
 # get columns indices and names with mean() or std() at the end of their names
